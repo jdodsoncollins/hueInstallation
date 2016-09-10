@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <switch></switch>
-    <switch></switch>
-    <switch></switch>
-    <img class="logo" src="./assets/logo.png">
+    <switch color="blue"></switch>
+    <switch color="red"></switch>
+    <switch color="green"></switch>
+    <footer>
+      <img src="./assets/large.square.logo.black.png" alt="">
+    </footer>
   </div>
-  <footer>
-    <img src="./assets/large.square.logo.black.png" alt="">
-  </footer>
 </template>
 
 <script>
@@ -20,6 +19,7 @@ export default {
       loggedData: {},
       url: 'http://10.14.1.146/api/vfcRmQVlEUHHsVzyFHkEGTI4DqZVwbzUQzoxYR3X/lights',
       lightResource: null,
+      messages: [],
     };
   },
 
@@ -32,6 +32,15 @@ export default {
 
   components: {
     Switch,
+  },
+
+  events: {
+    childMsg(msg) {
+      // `this` in event callbacks are automatically bound
+      // to the instance that registered it
+      console.log('in parent', msg, this);
+      this.messages.push(msg);
+    },
   },
 
 };
