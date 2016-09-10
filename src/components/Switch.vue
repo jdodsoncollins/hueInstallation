@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="switch">
+    <div>{{ msg }}</h1>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello World!',
+      msg: 'Toggle',
     };
   },
 };
@@ -20,7 +20,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1 {
-  color: #42b983;
+.switch div {
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 5px;
+  max-width: 100px;
+  display: inline-block;
 }
 </style>

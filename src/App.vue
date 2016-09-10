@@ -1,16 +1,14 @@
 <template>
   <div id="app">
+    <switch></switch>
+    <switch></switch>
+    <switch></switch>
     <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
-    {{ loggedData | json }}
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello';
+import Switch from './components/Switch';
 
 export default {
 
@@ -30,7 +28,7 @@ export default {
   },
 
   components: {
-    Hello,
+    Switch,
   },
 
 };
