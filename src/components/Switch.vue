@@ -1,7 +1,6 @@
 <template>
   <div class="switch">
     <div v-bind:style="styleObject">
-      <h4> Emitted color: {{ color }}</h2>
       <h4> Computed color: {{ colorComputed }}</h2>
       <button v-on:click="vote"> {{ msg }}</button>
     </div>
@@ -42,8 +41,8 @@ export default {
 
   methods: {
     vote() {
-      console.log(this);
-      this.$dispatch('child-msg', 'this.msg');
+      console.log(this.color);
+      this.$dispatch('childMsg', 'this.msg');
     },
   },
 
