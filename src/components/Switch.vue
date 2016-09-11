@@ -1,7 +1,14 @@
 <template>
-  <div class="switch" v-on:click="vote">
+  <div class="switch" v-on:click="vote" v-if="!disabled">
     <div v-bind:style="styleObject">
-      <h4> {{name}} </h2>
+      <h4> {{name}} </h4>
+    </div>
+  </div>
+  <div class="switch disabled" v-else>
+    <div>
+      <span>disabled</span>
+      <br>
+      <span> {{name}} </span>
     </div>
   </div>
 </template>
@@ -23,6 +30,10 @@ export default {
     },
     icon: {
       type: String,
+      required: true,
+    },
+    disabled: {
+      type: Boolean,
       required: true,
     },
   },
@@ -71,7 +82,7 @@ export default {
   max-width: 100px;
   display: inline-block;
 }
-.switch {
+.switch:not(.disabled) {
   cursor: pointer;
 }
 </style>

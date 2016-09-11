@@ -5,7 +5,7 @@
   <p>Vote made for {{selectedName}}</p>
   <main id="switch-board">
     <div v-for="switch in switchOptions">
-      <switch class="switch" v-bind:color="switch.color" v-bind:icon="switch.icon" v-bind:index="switch.index" v-bind:name="switch.name"></switch>
+      <switch v-bind:color="switch.color" v-bind:icon="switch.icon" v-bind:index="switch.index" v-bind:name="switch.name" v-bind:disabled="switch.disabled"></switch>
     </div>
   </main>
 </template>
@@ -27,78 +27,91 @@ export default {
           icon: '',
           name: 'a',
           index: 1,
+          disabled: false,
         },
         {
           color: 'red',
           icon: '',
           name: 'b',
           index: 2,
+          disabled: false,
         },
         {
           color: 'green',
           icon: '',
           name: 'c',
           index: 3,
+          disabled: false,
         },
         {
           color: 'blue',
           icon: '',
           name: 'd',
           index: 4,
+          disabled: false,
         },
         {
           color: 'red',
           icon: '',
           name: 'e',
           index: 5,
+          disabled: false,
         },
         {
           color: 'green',
           icon: '',
           name: 'f',
           index: 6,
+          disabled: false,
         },
         {
           color: 'blue',
           icon: '',
           name: 'g',
           index: 7,
+          disabled: false,
         },
         {
           color: 'red',
           icon: '',
           name: 'h',
           index: 8,
+          disabled: false,
         },
         {
           color: 'green',
           icon: '',
           name: 'i',
           index: 9,
+          disabled: false,
         },
         {
           color: 'blue',
           icon: '',
           name: 'j',
           index: 10,
+          disabled: false,
         },
         {
           color: 'red',
           icon: '',
           name: 'k',
           index: 11,
+          disabled: false,
         },
         {
           color: 'green',
           icon: '',
           name: 'm',
           index: 12,
+          disabled: false,
         },
         {
           color: 'blue',
           icon: '',
           name: 'n',
           index: 13,
+          disabled: true,
         },
       ],
     };
