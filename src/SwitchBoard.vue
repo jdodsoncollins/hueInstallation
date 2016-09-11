@@ -1,22 +1,13 @@
 <template>
-  <div id="app">
-    <switch color={{switchOptions.one.color}}></switch>
-    <switch color={{switchOptions.two.color}}></switch>
-    <switch color={{switchOptions.three.color}}></switch>
-    <switch color={{switchOptions.four.color}}></switch>
-    <switch color={{switchOptions.five.color}}></switch>
-    <switch color={{switchOptions.six.color}}></switch>
-    <switch color={{switchOptions.seven.color}}></switch>
-    <switch color={{switchOptions.eight.color}}></switch>
-    <switch color={{switchOptions.nine.color}}></switch>
-    <switch color={{switchOptions.ten.color}}></switch>
-    <switch color={{switchOptions.eleven.color}}></switch>
-    <switch color={{switchOptions.twelve.color}}></switch>
-
-    <footer>
-      <img src="./assets/large.square.logo.black.png" alt="">
-    </footer>
-  </div>
+  <header>
+    <img src="./assets/flipBrand.png" alt="" >
+  </header>
+  <p>Vote made for {{selectedName}}</p>
+  <main id="switch-board">
+    <div v-for="switch in switchOptions">
+      <switch class="switch" v-bind:color="switch.color" v-bind:icon="switch.icon" v-bind:index="switch.index" v-bind:name="switch.name"></switch>
+    </div>
+  </main>
 </template>
 <script>
 import Switch from './components/Switch';
@@ -28,69 +19,88 @@ export default {
       loggedData: {},
       url: 'http://10.14.1.146/api/vfcRmQVlEUHHsVzyFHkEGTI4DqZVwbzUQzoxYR3X/lights',
       lightResource: null,
-      messages: [],
-      switchOptions: {
-        one: {
+      selectedIndex: 0,
+      selectedName: '',
+      switchOptions: [ // example data object, server may provide this
+        {
           color: 'blue',
           icon: '',
+          name: 'a',
           index: 1,
         },
-        two: {
+        {
           color: 'red',
           icon: '',
+          name: 'b',
           index: 2,
         },
-        three: {
+        {
           color: 'green',
           icon: '',
+          name: 'c',
           index: 3,
         },
-        four: {
+        {
           color: 'blue',
           icon: '',
+          name: 'd',
           index: 4,
         },
-        five: {
+        {
           color: 'red',
           icon: '',
+          name: 'e',
           index: 5,
         },
-        six: {
+        {
           color: 'green',
           icon: '',
+          name: 'f',
           index: 6,
         },
-        seven: {
+        {
           color: 'blue',
           icon: '',
+          name: 'g',
           index: 7,
         },
-        eight: {
+        {
           color: 'red',
           icon: '',
+          name: 'h',
           index: 8,
         },
-        nine: {
+        {
           color: 'green',
           icon: '',
+          name: 'i',
           index: 9,
         },
-        ten: {
+        {
           color: 'blue',
           icon: '',
+          name: 'j',
           index: 10,
         },
-        eleven: {
+        {
           color: 'red',
           icon: '',
+          name: 'k',
           index: 11,
         },
-        twelve: {
+        {
           color: 'green',
           icon: '',
+          name: 'm',
           index: 12,
         },
-      },
+        {
+          color: 'blue',
+          icon: '',
+          name: 'n',
+          index: 13,
+        },
+      ],
     };
   },
 
@@ -106,9 +116,15 @@ export default {
   },
 
   events: {
-    childMsg(msg) {
-      this.messages.push(msg);
-      console.log(this.messages);
+    switchIndex(msg) {
+      // this is a property sent up from the child
+      this.selectedIndex = msg;
+      console.log(msg);
+    },
+    switchName(msg) {
+      // this is a property sent up from the child
+      this.selectedName = msg;
+      console.log(msg);
     },
   },
 
@@ -117,15 +133,21 @@ export default {
 </script>
 
 <style>
-html {
+html, body {
   height: 100%;
 }
-
-body {
+img {
+  max-width: 500px;
+  height: auto;
+}
+#switch-board {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  flex-direction: row;
+  align-content: flex-end;
+}
+#switch-board .switch {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 </style>

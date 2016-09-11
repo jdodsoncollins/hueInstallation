@@ -1,8 +1,7 @@
 <template>
-  <div class="switch">
+  <div class="switch" v-on:click="vote">
     <div v-bind:style="styleObject">
-      <h4> Computed color: {{ colorComputed }}</h2>
-      <button v-on:click="vote"> {{ msg }}</button>
+      <h4> {{name}} </h2>
     </div>
   </div>
 </template>
@@ -14,12 +13,23 @@ export default {
       type: String,
       required: true,
     },
+    index: {
+      type: Number,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    icon: {
+      type: String,
+      required: true,
+    },
   },
 
   data() {
     return {
       msg: 'Vote',
-      messages: [],
     };
   },
 
@@ -41,8 +51,8 @@ export default {
 
   methods: {
     vote() {
-      console.log(this.color);
-      this.$dispatch('childMsg', 'this.msg');
+      this.$dispatch('switchIndex', this.index);
+      this.$dispatch('switchName', this.name);
     },
   },
 
@@ -60,5 +70,8 @@ export default {
   margin: 5px;
   max-width: 100px;
   display: inline-block;
+}
+.switch {
+  cursor: pointer;
 }
 </style>
