@@ -1,14 +1,16 @@
 <template>
-  <div class="switch" v-on:click="vote" v-if="!disabled">
-    <div v-bind:style="styleObject">
-      <h4> {{name}} </h4>
+  <div>
+    <div class="switch" v-on:click="vote" v-if="!disabled">
+      <div v-bind:style="styleObject">
+        <h4> {{name}} </h4>
+      </div>
     </div>
-  </div>
-  <div class="switch disabled" v-else>
-    <div>
-      <span>disabled</span>
-      <br>
-      <span> {{name}} </span>
+    <div class="switch disabled" v-else>
+      <div>
+        <span>disabled</span>
+        <br>
+        <span> {{name}} </span>
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +49,7 @@ export default {
   computed: {
     colorComputed() {
       if (this.color) {
-        const computed = 'rgba(0,0,0,0)';
+        const computed = this.color;
         // compute
         return computed;
       }
@@ -69,20 +71,3 @@ export default {
 
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.switch {
-  border: 1px solid gray;
-  font-family: helvetica, arial, sans-serif;
-  font-size: 1em;
-  word-wrap: break-word;
-  padding: 5px;
-  margin: 5px;
-  max-width: 100px;
-  display: inline-block;
-}
-.switch:not(.disabled) {
-  cursor: pointer;
-}
-</style>

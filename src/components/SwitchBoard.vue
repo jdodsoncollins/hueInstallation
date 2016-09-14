@@ -1,18 +1,30 @@
 <template>
-  <header>
-    <img src="./assets/flipBrand.png" alt="" >
-  </header>
-  <p>Vote made for {{selectedName}}</p>
-  <main id="switch-board">
-    <div v-for="switch in switchOptions">
-      <switch v-bind:color="switch.color" v-bind:icon="switch.icon" v-bind:index="switch.index" v-bind:name="switch.name" v-bind:disabled="switch.disabled"></switch>
-    </div>
-  </main>
+  <div>
+    <p>Vote made for {{selectedName}}</p>
+    <main>
+      <swipe class="switch-swiper">
+          <swipe-item v-for="switch in switchOptions">
+            Page
+            <switch v-bind:color="switch.color"
+                    v-bind:icon="switch.icon"
+                    v-bind:index="switch.index"
+                    v-bind:name="switch.name"
+                    v-bind:disabled="switch.disabled"></switch>
+        </swipe-item>
+      </swipe>
+    </main>
+  </div>
 </template>
+
 <script>
-import Switch from './components/Switch';
+import Switch from './Switch';
 
 export default {
+  name: 'SwitchBoard',
+
+  components: {
+    Switch,
+  },
 
   data() {
     return {
@@ -124,20 +136,16 @@ export default {
     });
   },
 
-  components: {
-    Switch,
-  },
-
   events: {
     switchIndex(msg) {
       // this is a property sent up from the child
       this.selectedIndex = msg;
-      console.log(msg);
+      // console.log(msg);
     },
     switchName(msg) {
       // this is a property sent up from the child
       this.selectedName = msg;
-      console.log(msg);
+      // console.log(msg);
     },
   },
 
@@ -146,21 +154,34 @@ export default {
 </script>
 
 <style>
-html, body {
-  height: 100%;
+.switch-swiper {
+  height: 200px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
 }
-img {
-  max-width: 500px;
-  height: auto;
+.my-swipe {
+  height: 200px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
 }
-#switch-board {
-  display: flex;
-  flex-direction: row;
-  align-content: flex-end;
+
+.slide1 {
+  background-color: #0089dc;
+  color: #fff;
+  height: 200px;
 }
-#switch-board .switch {
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
+
+.slide2 {
+  background-color: #ffd705;
+  color: #000;
+  height: 200px;
+}
+
+.slide3 {
+  background-color: #ff2d4b;
+  color: #fff;
+  height: 200px;
 }
 </style>
