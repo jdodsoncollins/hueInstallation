@@ -3,13 +3,13 @@
     <p>Vote made for {{selectedName}}</p>
     <main>
       <swipe class="switch-swiper">
-          <swipe-item v-for="switch in switchOptions">
+          <swipe-item v-for="option in switchOptions">
             Page
-            <switch v-bind:color="switch.color"
-                    v-bind:icon="switch.icon"
-                    v-bind:index="switch.index"
-                    v-bind:name="switch.name"
-                    v-bind:disabled="switch.disabled"></switch>
+            <switch v-bind:color="option.color"
+                    v-bind:icon="option.icon"
+                    v-bind:index="option.index"
+                    v-bind:name="option.name"
+                    v-bind:disabled="option.disabled"></switch>
         </swipe-item>
       </swipe>
     </main>
