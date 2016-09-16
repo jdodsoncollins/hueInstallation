@@ -12,13 +12,12 @@
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
+    "firebase": "^3.4.0",
     "jquery": "^3.1.0",
     "normalize.css": "^4.2.0",
     "owl.carousel": "^2.1.4",
-    "vue": "^1.0.21",
-    "vue-resource": "^1.0.1",
-    "vue-swipe": "^0.2.6",
-    "vue-swiper": "^0.4.0"
+    "vue": "^1.0.26",
+    "vue-resource": "^1.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -31,10 +30,10 @@
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
     "eslint": "^2.10.2",
+    "eslint-config-airbnb-base": "^3.0.1",
     "eslint-friendly-formatter": "^2.0.5",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-html": "^1.3.0",
-    "eslint-config-airbnb-base": "^3.0.1",
     "eslint-plugin-import": "^1.8.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
@@ -43,6 +42,7 @@
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.12.0",
+    "imports-loader": "^0.6.5",
     "json-loader": "^0.5.4",
     "ora": "^0.2.0",
     "shelljs": "^0.6.0",

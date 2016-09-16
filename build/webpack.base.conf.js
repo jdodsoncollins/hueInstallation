@@ -1,7 +1,8 @@
-var path = require('path')
-var config = require('../config')
-var utils = require('./utils')
-var projectRoot = path.resolve(__dirname, '../')
+var path = require('path');
+var config = require('../config');
+var utils = require('./utils');
+var projectRoot = path.resolve(__dirname, '../');
+var webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -26,18 +27,18 @@ module.exports = {
   },
   module: {
     preLoaders: [
-      {
-        test: /\.vue$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      }
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'eslint',
+      //   include: projectRoot,
+      //   exclude: /node_modules/
+      // },
+      // {
+      //   test: /\.js$/,
+      //   loader: 'eslint',
+      //   include: projectRoot,
+      //   exclude: /node_modules/
+      // }
     ],
     loaders: [
       {
@@ -81,5 +82,8 @@ module.exports = {
   },
   vue: {
     loaders: utils.cssLoaders()
-  }
+  },
+  plugins: [
+      new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery'})
+  ]
 }

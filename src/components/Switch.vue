@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="switch" v-on:click="vote" v-if="!disabled">
-      <div v-bind:style="styleObject">
+      <div>
         <h4> {{name}} </h4>
       </div>
     </div>
@@ -47,19 +47,7 @@ export default {
   },
 
   computed: {
-    colorComputed() {
-      if (this.color) {
-        const computed = this.color;
-        // compute
-        return computed;
-      }
-      return 'rgba(0,0,0,0)';
-    },
-    styleObject() {
-      return {
-        backgroundColor: this.colorComputed,
-      };
-    },
+
   },
 
   methods: {

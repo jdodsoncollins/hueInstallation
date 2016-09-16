@@ -1,23 +1,45 @@
 <template>
-  <div>
-    <p>Vote made for {{selectedName}}</p>
-    <main>
-      <swipe class="switch-swiper">
-          <swipe-item v-for="option in switchOptions">
-            Page
-            <switch v-bind:color="option.color"
-                    v-bind:icon="option.icon"
-                    v-bind:index="option.index"
-                    v-bind:name="option.name"
-                    v-bind:disabled="option.disabled"></switch>
-        </swipe-item>
-      </swipe>
-    </main>
+  <div class="app">
+    <div class="content">
+
+    </div>
+
+    <div class="owl-carousel owl-theme">
+      <div class="vote-icon" id="0">
+        <img src="/images/icons/Heart.png" />
+      </div>
+      <div class="vote-icon" id="1">
+        <img src="/images/icons/Peach.png" />
+      </div>
+      <div class="vote-icon" id="2">
+        <img src="/images/icons/Sun.png" />
+      </div>
+      <div class="vote-icon" id="3">
+        <img src="/images/icons/Smile.png" />
+      </div>
+      <div class="vote-icon" id="4">
+        <img src="/images/icons/Volt.png" />
+      </div>
+      <div class="vote-icon" id="5">
+        <img src="/images/icons/Water.png" />
+      </div>
+      <div class="vote-icon" id="6">
+        <img src="/images/icons/Music.png" />
+      </div>
+      <div class="vote-icon" id="7">
+        <img src="/images/icons/Flower.png" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import owlCarousel from 'imports?$=jquery,jQuery=jquery!owl.carousel';
+
 import Switch from './Switch';
+import Firebase from 'firebase';
 
 export default {
   name: 'SwitchBoard',
@@ -33,114 +55,36 @@ export default {
       lightResource: null,
       selectedIndex: 0,
       selectedName: '',
-      switchOptions: [ // example data object, server may provide this
-        {
-          color: 'blue',
-          icon: '',
-          name: 'a',
-          index: 1,
-          disabled: false,
-        },
-        {
-          color: 'red',
-          icon: '',
-          name: 'b',
-          index: 2,
-          disabled: false,
-        },
-        {
-          color: 'green',
-          icon: '',
-          name: 'c',
-          index: 3,
-          disabled: false,
-        },
-        {
-          color: 'blue',
-          icon: '',
-          name: 'd',
-          index: 4,
-          disabled: false,
-        },
-        {
-          color: 'red',
-          icon: '',
-          name: 'e',
-          index: 5,
-          disabled: false,
-        },
-        {
-          color: 'green',
-          icon: '',
-          name: 'f',
-          index: 6,
-          disabled: false,
-        },
-        {
-          color: 'blue',
-          icon: '',
-          name: 'g',
-          index: 7,
-          disabled: false,
-        },
-        {
-          color: 'red',
-          icon: '',
-          name: 'h',
-          index: 8,
-          disabled: false,
-        },
-        {
-          color: 'green',
-          icon: '',
-          name: 'i',
-          index: 9,
-          disabled: false,
-        },
-        {
-          color: 'blue',
-          icon: '',
-          name: 'j',
-          index: 10,
-          disabled: false,
-        },
-        {
-          color: 'red',
-          icon: '',
-          name: 'k',
-          index: 11,
-          disabled: false,
-        },
-        {
-          color: 'green',
-          icon: '',
-          name: 'm',
-          index: 12,
-          disabled: false,
-        },
-        {
-          color: 'blue',
-          icon: '',
-          name: 'n',
-          index: 13,
-          disabled: true,
-        },
-      ],
     };
   },
 
   ready() {
-    this.lightResource = this.$resource(this.url);
-    this.lightResource.get().then(res => {
-      this.loggedData = res.data;
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 30,
+      slideBy: 100,
+      dots: false
     });
   },
 
   events: {
     switchIndex(msg) {
+
       // this is a property sent up from the child
       this.selectedIndex = msg;
-      // console.log(msg);
+      const colorOption = Firebase.database().ref("Lights/option" + this.selectedIndex);
+
+      colorOption.transaction(function(post) {
+        if (post == null) {
+          return 0;
+        }
+
+        return ++post;
+      }).then(function (stuff) {
+        console.log(stuff);
+      }).catch(function (error) {
+        console.log(error);
+      });
     },
     switchName(msg) {
       // this is a property sent up from the child
@@ -154,34 +98,5 @@ export default {
 </script>
 
 <style>
-.switch-swiper {
-  height: 200px;
-  color: #fff;
-  font-size: 30px;
-  text-align: center;
-}
-.my-swipe {
-  height: 200px;
-  color: #fff;
-  font-size: 30px;
-  text-align: center;
-}
 
-.slide1 {
-  background-color: #0089dc;
-  color: #fff;
-  height: 200px;
-}
-
-.slide2 {
-  background-color: #ffd705;
-  color: #000;
-  height: 200px;
-}
-
-.slide3 {
-  background-color: #ff2d4b;
-  color: #fff;
-  height: 200px;
-}
 </style>
