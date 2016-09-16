@@ -84,6 +84,10 @@ module.exports = {
     loaders: utils.cssLoaders()
   },
   plugins: [
-      new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery'})
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        "window.jQuery": "jquery"
+      })
   ]
 }

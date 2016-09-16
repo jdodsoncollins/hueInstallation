@@ -1,33 +1,38 @@
 <template>
   <div class="app">
-    <div class="content">
-
-    </div>
-
+    <div class="content"></div>
     <div class="owl-carousel owl-theme">
       <div class="vote-icon" id="0">
-        <img src="/images/icons/Heart.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/heart.png" />
       </div>
       <div class="vote-icon" id="1">
-        <img src="/images/icons/Peach.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/peach.png" />
       </div>
       <div class="vote-icon" id="2">
-        <img src="/images/icons/Sun.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/sun.png" />
       </div>
       <div class="vote-icon" id="3">
-        <img src="/images/icons/Smile.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/smile.png" />
       </div>
       <div class="vote-icon" id="4">
-        <img src="/images/icons/Volt.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/volt.png" />
       </div>
       <div class="vote-icon" id="5">
-        <img src="/images/icons/Water.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/water.png" />
       </div>
       <div class="vote-icon" id="6">
-        <img src="/images/icons/Music.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/music.png" />
       </div>
       <div class="vote-icon" id="7">
-        <img src="/images/icons/Flower.png" />
+        <h3>HELLO</h3>
+        <img src="/assets/images/icons/flower.png" />
       </div>
     </div>
   </div>
@@ -36,7 +41,8 @@
 <script>
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
-import owlCarousel from 'imports?$=jquery,jQuery=jquery!owl.carousel';
+import $ from 'jquery';
+import 'imports?jQuery=jquery!owl.carousel';
 
 import Switch from './Switch';
 import Firebase from 'firebase';
@@ -96,7 +102,3 @@ export default {
 };
 
 </script>
-
-<style>
-
-</style>
