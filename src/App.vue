@@ -1,11 +1,41 @@
 <template>
-  <div>
+  <section class="main-container">
     <switch-board></switch-board>
-  </div>
+  </section>
 </template>
 
-<script>
+<style>
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
 
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: url('./assets/images/gifblur.gif');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .main-container {
+    margin-bottom: 25px;
+  }
+
+  .app {
+    background-image: url('./assets/images/gradientbg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+</style>
+
+<script>
 import SwitchBoard from './components/SwitchBoard';
 
 export default {
@@ -15,32 +45,3 @@ export default {
 };
 </script>
 
-<style>
-  html, body, div.app {
-  height:100%;
-  width:100%;
-  margin:0;
-  }
-
-  body {
-  background-image: url('./assets/images/gifblur.gif');
-  background-repeat: no-repeat;
-  background-size:100% 100%;
-  }
-
-  div.content {
-  height:75%;
-  }
-
-  .owl-carousel div {
-  color:#ffffff;
-  height:25%;
-  width:100%;
-  }
-
-  div.app {
-  background-image: url('./assets/images/gradientbg.png');
-  background-repeat:no-repeat;
-  background-size:100% 100%;
-  }
-</style>

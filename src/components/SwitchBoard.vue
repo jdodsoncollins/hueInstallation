@@ -1,39 +1,28 @@
 <template>
-  <div class="app">
-    <div class="content"></div>
-    <div class="owl-carousel owl-theme">
-      <div class="vote-icon" id="0">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/heart.png" />
-      </div>
-      <div class="vote-icon" id="1">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/peach.png" />
-      </div>
-      <div class="vote-icon" id="2">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/sun.png" />
-      </div>
-      <div class="vote-icon" id="3">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/smile.png" />
-      </div>
-      <div class="vote-icon" id="4">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/volt.png" />
-      </div>
-      <div class="vote-icon" id="5">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/water.png" />
-      </div>
-      <div class="vote-icon" id="6">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/music.png" />
-      </div>
-      <div class="vote-icon" id="7">
-        <h3>HELLO</h3>
-        <img src="/assets/images/icons/flower.png" />
-      </div>
+  <div class="owl-carousel owl-theme">
+    <div class="vote-icon" @click="submitVote(0)">
+      <img src="../assets/images/icons/heart.png" />
+    </div>
+    <div class="vote-icon" @click="submitVote(1)">
+      <img src="../assets/images/icons/peach.png" />
+    </div>
+    <div class="vote-icon" @click="submitVote(2)">
+      <img src="../assets/images/icons/sun.png" />
+    </div>
+    <div class="vote-icon" @click="submitVote(3)">
+      <img src="../assets/images/icons/smile.png" />
+    </div>
+    <div class="vote-icon" @click="submitVote(4)">
+      <img src="../assets/images/icons/volt.png" />
+    </div>
+    <div class="vote-icon" @click="submitVote(5)">
+      <img src="../assets/images/icons/water.png" />
+    </div>
+    <div class="vote-icon" @click="submitVote(6)">
+      <img src="../assets/images/icons/music.png" />
+    </div>
+    <div class="vote-icon" @click="submitVote(7)">
+      <img src="../assets/images/icons/flower.png" />
     </div>
   </div>
 </template>
@@ -46,12 +35,13 @@ import 'imports?jQuery=jquery!owl.carousel';
 
 import Switch from './Switch';
 import Firebase from 'firebase';
+import Heart from './Heart';
 
 export default {
   name: 'SwitchBoard',
 
   components: {
-    Switch,
+    Switch, Heart
   },
 
   data() {
@@ -71,6 +61,12 @@ export default {
       slideBy: 100,
       dots: false
     });
+  },
+
+  methods: {
+    submitVote(id) {
+      console.log(id);
+    }
   },
 
   events: {
