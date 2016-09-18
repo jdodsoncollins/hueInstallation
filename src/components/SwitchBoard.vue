@@ -2,29 +2,35 @@
   <div class="owl-carousel owl-theme">
     <div class="vote-icon" @click="submitVote(0)" data-light-number="0">
       <heart></heart>
-      <switch icon="heart.png"></switch>
+      <img src="../assets/images/icons/heart.png" />
     </div>
     <div class="vote-icon" @click="submitVote(1)" data-light-number="1">
-
-      <switch icon="peach.png"></switch>
+      <heart></heart>
+      <img src="../assets/images/icons/peach.png" />
     </div>
     <div class="vote-icon" @click="submitVote(2)" data-light-number="2">
-      <switch icon="sun.png"></switch>
+      <heart></heart>
+      <img src="../assets/images/icons/sun.png" />
     </div>
     <div class="vote-icon" @click="submitVote(3)" data-light-number="3">
-      <switch icon="smile.png"></switch>
+      <heart></heart>
+      <img src="../assets/images/icons/smile.png" />
     </div>
     <div class="vote-icon" @click="submitVote(4)" data-light-number="4">
-      <switch icon="volt.png"></switch>
+      <heart></heart>
+      <img src="../assets/images/icons/volt.png" />
     </div>
     <div class="vote-icon" @click="submitVote(5)" data-light-number="5">
-      <switch icon="water.png"></switch>
+      <heart></heart>
+      <img src="../assets/images/icons/water.png" />
     </div>
     <div class="vote-icon" @click="submitVote(6)" data-light-number="6">
-      <switch icon="music.png"></switch>
+      <heart></heart>
+      <img src="../assets/images/icons/music.png" />
     </div>
     <div class="vote-icon" @click="submitVote(7)" data-light-number="7">
-      <switch icon="flower.png"></switch>
+      <heart></heart>
+      <img src="../assets/images/icons/flower.png" />
     </div>
   </div>
 </template>
