@@ -1,5 +1,5 @@
 <template>
-  <section class="main-container">
+  <section class="switch-container clearfix">
     <switch-board></switch-board>
   </section>
 </template>
@@ -10,15 +10,41 @@
     width: 100%;
   }
   body {
-    background: url('./assets/images/gifblur.gif') no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background-size: 100% 100%;
+    background: black url('./assets/images/gifblur.gif') no-repeat;
     z-index: -999;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
-  .main-container {
+  .switch-container {
+    margin-bottom: 100px;
+
+    /*
+     * arbitrary number to offset the icons on the sides of the screen
+     */
+    position: relative;
+    left: -42px;
+    width: calc(100% + 42px);
+
   }
   .app {
     background: url('./assets/images/gradientbg.png') no-repeat;
     background-size: 100% 100%;
+  }
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
   }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
   <ul class="heart-container">
-    <li class="vote-icon">
-      <img :src="icon" @click="clickLike()" style="z-index:999">
+    <li class="vote-icon" @click="clickLike()">
+      <img :src="icon">
     </li>
     <li v-for="like in likes">
       <div class="heart" :style="like.styleObject"></div>
@@ -11,9 +11,13 @@
 
 <script>
   import heartBlue from '../assets/images/hearts/blue.svg';
-  import heartGreen from '../assets/images/hearts/green.svg';
-  import heartPink from '../assets/images/hearts/pink.svg';
+  import heartMagenta from '../assets/images/hearts/magenta.svg';
+  import heartOrange from '../assets/images/hearts/orange.svg';
+  import heartPeach from '../assets/images/hearts/peach.svg';
+  import heartPurple from '../assets/images/hearts/purple.svg';
   import heartRed from '../assets/images/hearts/red.svg';
+  import heartGreen from '../assets/images/hearts/green.svg';
+  import heartYellow from '../assets/images/hearts/yellow.svg';
 
   export default {
     props: {
@@ -27,9 +31,13 @@
         likes: [],
         hearts: {
           'heart1': heartBlue,
-          'heart2': heartGreen,
-          'heart3': heartPink,
-          'heart4': heartRed,
+          'heart2': heartMagenta,
+          'heart3': heartOrange,
+          'heart4': heartPeach,
+          'heart5': heartPurple,
+          'heart6': heartRed,
+          'heart7': heartGreen,
+          'heart8': heartYellow,
         }
       };
     },
@@ -52,7 +60,7 @@
         let animationTwo = animationTime + 's fadeOut forwards';
         let animationThree = animationTime + 's ' + animationSize + ' forwards';
 
-        let heartChoice = 'heart' + this.numberBetween(1, 4);
+        let heartChoice = 'heart' + this.numberBetween(1, 8);
         heartChoice = this.hearts[heartChoice];
 
         this.likes.push({
@@ -93,7 +101,8 @@
 
 <style lang="scss">
 
-  .vote-icon {
+  .vote-icon,
+  .vote-icon img {
     z-index: 999 !important;
   }
 
@@ -116,7 +125,7 @@
 
   .heart {
     width: 50px;
-    height: auto;
+    height: 50px;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;

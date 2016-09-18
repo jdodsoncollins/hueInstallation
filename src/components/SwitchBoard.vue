@@ -31,7 +31,7 @@
   export default {
     name: 'SwitchBoard',
     components: {
-      Heart: Heart
+      Switch: Switch
     },
     data() {
       return {
@@ -50,9 +50,12 @@
     ready() {
       $('.owl-carousel').owlCarousel({
         loop: true,
-        margin: 30,
-        slideBy: 100,
-        dots: false
+//        margin: 30,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3500,
+        autoplayHoverPause: true,
+//        stagePadding: 10,
       });
     },
     methods: {
