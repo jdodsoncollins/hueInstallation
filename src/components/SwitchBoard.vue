@@ -1,28 +1,30 @@
 <template>
   <div class="owl-carousel owl-theme">
-    <div class="vote-icon" @click="submitVote(0)">
-      <img src="../assets/images/icons/heart.png" />
+    <div class="vote-icon" @click="submitVote(0)" data-light-number="0">
+      <heart></heart>
+      <switch icon="heart.png"></switch>
     </div>
-    <div class="vote-icon" @click="submitVote(1)">
-      <img src="../assets/images/icons/peach.png" />
+    <div class="vote-icon" @click="submitVote(1)" data-light-number="1">
+
+      <switch icon="peach.png"></switch>
     </div>
-    <div class="vote-icon" @click="submitVote(2)">
-      <img src="../assets/images/icons/sun.png" />
+    <div class="vote-icon" @click="submitVote(2)" data-light-number="2">
+      <switch icon="sun.png"></switch>
     </div>
-    <div class="vote-icon" @click="submitVote(3)">
-      <img src="../assets/images/icons/smile.png" />
+    <div class="vote-icon" @click="submitVote(3)" data-light-number="3">
+      <switch icon="smile.png"></switch>
     </div>
-    <div class="vote-icon" @click="submitVote(4)">
-      <img src="../assets/images/icons/volt.png" />
+    <div class="vote-icon" @click="submitVote(4)" data-light-number="4">
+      <switch icon="volt.png"></switch>
     </div>
-    <div class="vote-icon" @click="submitVote(5)">
-      <img src="../assets/images/icons/water.png" />
+    <div class="vote-icon" @click="submitVote(5)" data-light-number="5">
+      <switch icon="water.png"></switch>
     </div>
-    <div class="vote-icon" @click="submitVote(6)">
-      <img src="../assets/images/icons/music.png" />
+    <div class="vote-icon" @click="submitVote(6)" data-light-number="6">
+      <switch icon="music.png"></switch>
     </div>
-    <div class="vote-icon" @click="submitVote(7)">
-      <img src="../assets/images/icons/flower.png" />
+    <div class="vote-icon" @click="submitVote(7)" data-light-number="7">
+      <switch icon="flower.png"></switch>
     </div>
   </div>
 </template>
@@ -65,6 +67,7 @@ export default {
 
   methods: {
     submitVote(id) {
+      $('.vote-icon').find("[data-light-number='" + id + "']").append('<heart></heart>');
       console.log(id);
     }
   },
@@ -83,9 +86,9 @@ export default {
 
         return ++post;
       }).then(function (stuff) {
-        console.log(stuff);
+        console.log('stuff', stuff);
       }).catch(function (error) {
-        console.log(error);
+        console.log('error', error);
       });
     },
     switchName(msg) {

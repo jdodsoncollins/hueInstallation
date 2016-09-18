@@ -1,41 +1,14 @@
 <template>
-  <div>
-    <div class="switch" v-on:click="vote" v-if="!disabled">
-      <div>
-        <h4> {{name}} </h4>
-      </div>
-    </div>
-    <div class="switch disabled" v-else>
-      <div>
-        <span>disabled</span>
-        <br>
-        <span> {{name}} </span>
-      </div>
-    </div>
-  </div>
+  <li>
+    <img :src="../assets/images/icons/{{ icon }}"  />
+  </li>
 </template>
 
 <script>
 export default {
   props: {
-    color: {
-      type: String,
-      required: true,
-    },
-    index: {
-      type: Number,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
     icon: {
       type: String,
-      required: true,
-    },
-    disabled: {
-      type: Boolean,
       required: true,
     },
   },

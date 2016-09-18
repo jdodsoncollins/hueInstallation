@@ -14,8 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-image: url('./assets/images/gifblur.gif');
-    background-repeat: no-repeat;
+    background: url('./assets/images/gifblur.gif') no-repeat;
     background-size:100% 100%;
     position: fixed;
     top: 0;
@@ -29,8 +28,7 @@
   }
 
   .app {
-    background-image: url('./assets/images/gradientbg.png');
-    background-repeat: no-repeat;
+    background: url('./assets/images/gradientbg.png') no-repeat;
     background-size: 100% 100%;
   }
 </style>
