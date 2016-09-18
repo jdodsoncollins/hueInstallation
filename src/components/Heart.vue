@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <button @click="clickLike()" style="z-index:999">Like</button>
-    <ul class="heart-container">
-      <li v-for="like in likes">
-        <div class="heart" :style="like.styleObject"></div>
-        <img :src="image">
-      </li>
-    </ul>
-  </div>
+  <ul class="heart-container">
+    <li><img :src="icon" @click="clickLike()" style="z-index:999"></li>
+    <li v-for="like in likes" class="heart" :style="like.styleObject"></li>
+  </ul>
 </template>
 
 <script>
+
+  import heartBlue from '../assets/images/hearts/blue.png';
+  import heartGreen from '../assets/images/hearts/green.svg';
+  import heartPink from '../assets/images/hearts/pink.svg';
+  import heartRed from '../assets/images/hearts/red.svg';
 
   export default {
     props: {
@@ -19,26 +19,29 @@
       },
     },
 
-    computed: {
-      image() {
-        console.log(this.icons, this.icon);
-        return this.icons[this.icon];
-      },
-    },
-
     data() {
       return {
-        likes: []
+        likes: [],
+        hearts: {
+          'heart1': heartBlue,
+          'heart2': heartGreen,
+          'heart3': heartPink,
+          'heart4': heartRed,
+        }
       };
     },
-    methods: {
 
+    ready() {
+      this.setUpdateCycle();
+    },
+
+    methods: {
       numberBetween(start, end)  {
         return Math.floor(Math.random() * ((end - start) + 1) + start);
       },
 
       clickLike() {
-        let animationTime = this.numberBetween(7, 10) / 10;
+        let animationTime = this.numberBetween(7, 20) / 10;
         let animationName = 'flow' + this.numberBetween(1, 4);
         let animationSize = 'size' + this.numberBetween(1, 3);
 
@@ -46,11 +49,41 @@
         let animationTwo = animationTime + 's fadeOut forwards';
         let animationThree = animationTime + 's ' + animationSize + ' forwards';
 
+        let heartChoice = 'heart' + this.numberBetween(1, 4);
+        heartChoice = this.hearts[heartChoice];
+
         this.likes.push({
+          datetime: Date.now(),
           styleObject: {
-            background: 'url(' + this.icon + ')',
+            backgroundImage: 'url(' + heartChoice + ')',
             animation: animationOne + ', ' + animationTwo + ', ' + animationThree,
           },
+        });
+
+      },
+
+      /**
+       * Sets a 10s polling cycle to prune old likes so the dom doesnt get overloaded
+       */
+      setUpdateCycle() {
+        let vm = this;
+        (function Forever() {
+          vm.prune();
+          setTimeout(Forever, 10000);
+        })();
+      },
+
+      /**
+       * Fetch
+       */
+      prune() {
+        let vm = this;
+        vm.likes.forEach((object, key) => {
+          let expired = ((new Date) - object.datetime) > 5000;
+          console.log(expired);
+          if (expired) {
+            vm.likes.splice(key);
+          }
         });
       },
 
@@ -61,6 +94,8 @@
 <style lang="scss">
   .heart-container {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 
     li {
       position: absolute;
@@ -74,8 +109,6 @@
   }
 
   .heart {
-    display: inline-block;
-    bottom: 50px;
     width: 50px;
     height: 50px;
     background-repeat: no-repeat;
@@ -166,7 +199,7 @@
     100% {
       width: 55px;
       height: 55px;
-      animation-timing-function: ease-out;
+      animation-timing-function: ease-in;
     }
   }
 
@@ -182,7 +215,7 @@
     100% {
       width: 30px;
       height: 30px;
-      animation-timing-function: ease-out;
+      animation-timing-function: ease-in;
     }
   }
 
@@ -198,7 +231,7 @@
     100% {
       width: 20px;
       height: 20px;
-      animation-timing-function: ease-out;
+      animation-timing-function: ease-in;
     }
   }
 </style>

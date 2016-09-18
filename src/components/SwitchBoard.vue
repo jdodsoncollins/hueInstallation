@@ -1,37 +1,21 @@
 <template>
   <div class="owl-carousel owl-theme">
-    <div class="vote-icon" @click="submitVote(0)" data-light-number="0">
-      <heart :icon="icons.heartIcon"></heart>
-      <img :src="icons.heartIcon">
-    </div>
-    <div class="vote-icon" @click="submitVote(1)" data-light-number="1">
-      <heart :icon="icons.peachIcon"></heart>
-      <img :src="icons.peachIcon">
-    </div>
-    <div class="vote-icon" @click="submitVote(2)" data-light-number="2">
-      <heart :icon="icons.sunIcon"></heart>
-      <img :src="icons.sunIcon">
-    </div>
-    <div class="vote-icon" @click="submitVote(3)" data-light-number="3">
-      <heart :icon="icons.smileIcon"></heart>
-      <img :src="icons.smileIcon">
-    </div>
-    <div class="vote-icon" @click="submitVote(4)" data-light-number="4">
-      <heart :icon="icons.voltIcon"></heart>
-      <img :src="icons.voltIcon">
-    </div>
-    <div class="vote-icon" @click="submitVote(5)" data-light-number="5">
-      <heart :icon="icons.waterIcon"></heart>
-      <img :src="icons.waterIcon">
-    </div>
-    <div class="vote-icon" @click="submitVote(6)" data-light-number="6">
-      <heart :icon="icons.musicIcon"></heart>
-      <img :src="icons.musicIcon">
-    </div>
-    <div class="vote-icon" @click="submitVote(7)" data-light-number="7">
-      <heart :icon="icons.flowerIcon"></heart>
-      <img :src="icons.flowerIcon">
-    </div>
+      <heart :icon="icons.heartIcon"
+             class="vote-icon" @click="submitVote(0)" data-light-number="0"></heart>
+      <heart :icon="icons.peachIcon"
+             class="vote-icon" @click="submitVote(1)" data-light-number="1"></heart>
+      <heart :icon="icons.sunIcon"
+             class="vote-icon" @click="submitVote(2)" data-light-number="2"></heart>
+      <heart :icon="icons.smileIcon"
+             class="vote-icon" @click="submitVote(3)" data-light-number="3"></heart>
+      <heart :icon="icons.voltIcon"
+             class="vote-icon" @click="submitVote(4)" data-light-number="4"></heart>
+      <heart :icon="icons.waterIcon"
+             class="vote-icon" @click="submitVote(5)" data-light-number="5"></heart>
+      <heart :icon="icons.musicIcon"
+             class="vote-icon" @click="submitVote(6)" data-light-number="6"></heart>
+      <heart :icon="icons.flowerIcon"
+             class="vote-icon" @click="submitVote(7)" data-light-number="7"></heart>
   </div>
 </template>
 
@@ -84,8 +68,8 @@ export default {
   ready() {
     $('.owl-carousel').owlCarousel({
       loop: true,
-      margin: 30,
-      slideBy: 100,
+//      margin: 30,
+//      slideBy: 100,
       dots: false
     });
   },
