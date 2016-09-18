@@ -1,36 +1,36 @@
 <template>
   <div class="owl-carousel owl-theme">
     <div class="vote-icon" @click="submitVote(0)" data-light-number="0">
-      <heart></heart>
-      <img src="../assets/images/icons/heart.png" />
+      <heart :icon="icons.heartIcon"></heart>
+      <img :src="icons.heartIcon">
     </div>
     <div class="vote-icon" @click="submitVote(1)" data-light-number="1">
-      <heart></heart>
-      <img src="../assets/images/icons/peach.png" />
+      <heart :icon="icons.peachIcon"></heart>
+      <img :src="icons.peachIcon">
     </div>
     <div class="vote-icon" @click="submitVote(2)" data-light-number="2">
-      <heart></heart>
-      <img src="../assets/images/icons/sun.png" />
+      <heart :icon="icons.sunIcon"></heart>
+      <img :src="icons.sunIcon">
     </div>
     <div class="vote-icon" @click="submitVote(3)" data-light-number="3">
-      <heart></heart>
-      <img src="../assets/images/icons/smile.png" />
+      <heart :icon="icons.smileIcon"></heart>
+      <img :src="icons.smileIcon">
     </div>
     <div class="vote-icon" @click="submitVote(4)" data-light-number="4">
-      <heart></heart>
-      <img src="../assets/images/icons/volt.png" />
+      <heart :icon="icons.voltIcon"></heart>
+      <img :src="icons.voltIcon">
     </div>
     <div class="vote-icon" @click="submitVote(5)" data-light-number="5">
-      <heart></heart>
-      <img src="../assets/images/icons/water.png" />
+      <heart :icon="icons.waterIcon"></heart>
+      <img :src="icons.waterIcon">
     </div>
     <div class="vote-icon" @click="submitVote(6)" data-light-number="6">
-      <heart></heart>
-      <img src="../assets/images/icons/music.png" />
+      <heart :icon="icons.musicIcon"></heart>
+      <img :src="icons.musicIcon">
     </div>
     <div class="vote-icon" @click="submitVote(7)" data-light-number="7">
-      <heart></heart>
-      <img src="../assets/images/icons/flower.png" />
+      <heart :icon="icons.flowerIcon"></heart>
+      <img :src="icons.flowerIcon">
     </div>
   </div>
 </template>
@@ -44,6 +44,15 @@ import 'imports?jQuery=jquery!owl.carousel';
 import Switch from './Switch';
 import Firebase from 'firebase';
 import Heart from './Heart';
+
+import heartIcon from '../assets/images/icons/heart.png';
+import peachIcon from '../assets/images/icons/peach.png';
+import sunIcon from '../assets/images/icons/sun.png';
+import smileIcon from '../assets/images/icons/smile.png';
+import voltIcon from '../assets/images/icons/volt.png';
+import waterIcon from '../assets/images/icons/water.png';
+import musicIcon from '../assets/images/icons/music.png';
+import flowerIcon from '../assets/images/icons/flower.png';
 
 export default {
   name: 'SwitchBoard',
@@ -59,6 +68,16 @@ export default {
       lightResource: null,
       selectedIndex: 0,
       selectedName: '',
+      icons: {
+        heartIcon: heartIcon,
+        peachIcon: peachIcon,
+        sunIcon: sunIcon,
+        smileIcon: smileIcon,
+        voltIcon: voltIcon,
+        waterIcon: waterIcon,
+        musicIcon: musicIcon,
+        flowerIcon: flowerIcon,
+      }
     };
   },
 
@@ -73,7 +92,6 @@ export default {
 
   methods: {
     submitVote(id) {
-      $('.vote-icon').find("[data-light-number='" + id + "']").append('<heart></heart>');
       console.log(id);
     }
   },
