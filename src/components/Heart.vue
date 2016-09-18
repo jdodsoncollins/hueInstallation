@@ -1,13 +1,17 @@
 <template>
   <ul class="heart-container">
-    <li><img :src="icon" @click="clickLike()" style="z-index:999"></li>
-    <li v-for="like in likes" class="heart" :style="like.styleObject"></li>
+    <li class="vote-icon">
+      <img :src="icon" @click="clickLike()" style="z-index:999">
+    </li>
+    <li v-for="like in likes">
+      <div class="heart" :style="like.styleObject"></div>
+    </li>
   </ul>
 </template>
 
 <script>
 
-  import heartBlue from '../assets/images/hearts/blue.png';
+  import heartBlue from '../assets/images/hearts/blue.svg';
   import heartGreen from '../assets/images/hearts/green.svg';
   import heartPink from '../assets/images/hearts/pink.svg';
   import heartRed from '../assets/images/hearts/red.svg';
@@ -32,7 +36,7 @@
     },
 
     ready() {
-      this.setUpdateCycle();
+      this.setPruneCycle();
     },
 
     methods: {
@@ -65,7 +69,7 @@
       /**
        * Sets a 10s polling cycle to prune old likes so the dom doesnt get overloaded
        */
-      setUpdateCycle() {
+      setPruneCycle() {
         let vm = this;
         (function Forever() {
           vm.prune();
@@ -73,14 +77,13 @@
         })();
       },
 
-      /**
-       * Fetch
-       */
+      // Prune old likes from array
       prune() {
         let vm = this;
+
         vm.likes.forEach((object, key) => {
           let expired = ((new Date) - object.datetime) > 5000;
-          console.log(expired);
+
           if (expired) {
             vm.likes.splice(key);
           }
@@ -92,6 +95,11 @@
 </script>
 
 <style lang="scss">
+
+  .vote-icon {
+    z-index: 999 !important;
+  }
+
   .heart-container {
     list-style-type: none;
     margin: 0;
@@ -101,6 +109,7 @@
       position: absolute;
       display: block;
       background-color: rgba(0, 0, 0, 0);
+      z-index: 1;
     }
   }
 
@@ -110,9 +119,12 @@
 
   .heart {
     width: 50px;
-    height: 50px;
+    height: auto;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+    left: 15px;
+    top: 15px;
   }
 
   @keyframes fadeOut {
