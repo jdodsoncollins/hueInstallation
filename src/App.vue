@@ -24,15 +24,6 @@
     bottom: 0;
   }
   .switch-container {
-    margin-bottom: 100px;
-
-    /*
-     * arbitrary number to offset the icons on the sides of the screen
-     */
-    position: relative;
-    left: -42px;
-    width: calc(100% + 42px);
-
   }
   .app {
     background: url('./assets/images/gradientbg.png') no-repeat;
