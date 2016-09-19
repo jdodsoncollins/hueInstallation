@@ -52,9 +52,9 @@
         loop: true,
 //        margin: 30,
         dots: false,
-        autoplay: true,
-        autoplayTimeout: 3500,
-        autoplayHoverPause: true,
+//        autoplay: true,
+//        autoplayTimeout: 3500,
+//        autoplayHoverPause: true,
 //        stagePadding: 10,
       });
     },

@@ -3,7 +3,7 @@
     <li class="vote-icon" @click="clickLike()">
       <img :src="icon">
     </li>
-    <li v-for="like in likes">
+    <li v-for="like in likes | likeFilter">
       <div class="heart" :style="like.styleObject"></div>
     </li>
   </ul>
@@ -26,6 +26,18 @@
       },
     },
 
+    filters: {
+      likeFilter(options) {
+        options.forEach((object, key) => {
+          let expired = ((new Date) - object.datetime) > 5000;
+          if (expired) {
+            options.splice(key);
+          }
+        });
+        return options;
+      },
+    },
+
     data() {
       return {
         likes: [],
@@ -42,9 +54,6 @@
       };
     },
 
-    ready() {
-      this.setPruneCycle();
-    },
 
     methods: {
       numberBetween(start, end)  {
@@ -70,31 +79,7 @@
             animation: animationOne + ', ' + animationTwo + ', ' + animationThree,
           },
         });
-
       },
-
-      // Sets a 10s polling cycle to prune old likes so the dom doesn't get overloaded
-      setPruneCycle() {
-        let vm = this;
-        (function Forever() {
-          vm.prune();
-          setTimeout(Forever, 10000);
-        })();
-      },
-
-      // Prune old likes from array
-      prune() {
-        let vm = this;
-
-        vm.likes.forEach((object, key) => {
-          let expired = ((new Date) - object.datetime) > 5000;
-
-          if (expired) {
-            vm.likes.splice(key);
-          }
-        });
-      },
-
     },
   }
 </script>
