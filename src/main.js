@@ -17,15 +17,3 @@ $(function() {
   });
 });
 
-Firebase.initializeApp({
-  apiKey: 'AIzaSyCMrWE7gWzGjHW08YimzSpGgnCXbTbzhMk',
-  authDomain: 'flipp-a77fe.firebaseapp.com',
-  databaseURL: 'https://flipp-a77fe.firebaseio.com',
-  storageBucket: '',
-  messagingSenderId: '636127035750',
-});
-
-Firebase.auth().signInAnonymously().catch(() => {
-  // No op
-});
-

@@ -25,8 +25,21 @@
   import 'owl.carousel/dist/assets/owl.carousel.css';
   import $ from 'jquery';
   import 'imports?jQuery=jquery!owl.carousel';
+  import Firebase from 'firebase';
 
   import Switch from './Switch';
+
+  Firebase.initializeApp({
+    apiKey: 'AIzaSyCMrWE7gWzGjHW08YimzSpGgnCXbTbzhMk',
+    authDomain: 'flipp-a77fe.firebaseapp.com',
+    databaseURL: 'https://flipp-a77fe.firebaseio.com',
+    storageBucket: '',
+    messagingSenderId: '636127035750',
+  });
+
+  Firebase.auth().signInAnonymously().catch(() => {
+    // No op
+  });
 
   export default {
     name: 'SwitchBoard',
@@ -60,7 +73,21 @@
     },
     methods: {
       submitVote(id) {
-        console.log('cast vote for: ' + id);
+
+        const colorOption = Firebase.database().ref("Lights/option" + id);
+
+        colorOption.transaction(function(post) {
+          if (post == null) {
+            return 0;
+          }
+
+          return ++post;
+        }).then(function (stuff) {
+          console.log(stuff);
+        }).catch(function (error) {
+          console.log(error);
+        });
+
       }
     },
   };
