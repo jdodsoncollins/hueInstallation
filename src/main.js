@@ -18,7 +18,7 @@ $(function() {
 });
 
 Firebase.initializeApp({
-  apiKey: 'AIzaSyAEZ6cdb0fIZ8mTpaZAcj0xthkdUOVfztA',
+  apiKey: 'AIzaSyCMrWE7gWzGjHW08YimzSpGgnCXbTbzhMk',
   authDomain: 'flipp-a77fe.firebaseapp.com',
   databaseURL: 'https://flipp-a77fe.firebaseio.com',
   storageBucket: '',
@@ -28,3 +28,4 @@ Firebase.initializeApp({
 Firebase.auth().signInAnonymously().catch(() => {
   // No op
 });
+
