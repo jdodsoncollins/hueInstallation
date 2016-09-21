@@ -38,14 +38,14 @@
 
 <script>
 
-  import heartIcon from '../assets/images/icons/heart.png';
-  import peachIcon from '../assets/images/icons/peach.png';
-  import sunIcon from '../assets/images/icons/sun.png';
-  import smileIcon from '../assets/images/icons/smile.png';
-  import voltIcon from '../assets/images/icons/volt.png';
-  import waterIcon from '../assets/images/icons/water.png';
-  import musicIcon from '../assets/images/icons/music.png';
-  import flowerIcon from '../assets/images/icons/flower.png';
+  import heartIcon from '../assets/images/icons/heart_red.svg';
+  import peachIcon from '../assets/images/icons/peach_light_orange.svg';
+  import sunIcon from '../assets/images/icons/sun_orange.svg';
+  import smileIcon from '../assets/images/icons/smile_yellow.svg';
+  import voltIcon from '../assets/images/icons/volt_green_yellow.svg';
+  import waterIcon from '../assets/images/icons/water_blue.svg';
+  import musicIcon from '../assets/images/icons/music_violet.svg';
+  import flowerIcon from '../assets/images/icons/flower_magenta.svg';
 
   import 'vue-swipe/dist/vue-swipe.css';
   import { Swipe, SwipeItem } from 'vue-swipe';
