@@ -1,9 +1,9 @@
 <template>
-  <div class="like-container" @click="clickLike()">
-    <img :src="icon" style="max-width:100px;">
-    <ul class="heart-container">
+  <div class="like-container noselect" @click="clickLike()">
+    <img :src="icon">
+    <ul class="heart-container noselect">
       <li v-for="like in likes | likeFilter">
-        <div class="heart" :style="like.styleObject"></div>
+        <div class="heart noselect" :style="like.styleObject"></div>
       </li>
     </ul>
   </div>
@@ -86,12 +86,22 @@
 </script>
 
 <style lang="scss">
+
+  .noselect {
+    user-select: none;
+  }
+
   .like-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    img {
+      padding: 25px;
+    }
   }
+
   .vote-icon,
   .vote-icon img {
     z-index: 999 !important;

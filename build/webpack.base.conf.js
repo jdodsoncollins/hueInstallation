@@ -41,6 +41,7 @@ module.exports = {
       // }
     ],
     loaders: [
+      { test: require.resolve('jquery'), loader: 'expose?jQuery!expose?$' },
       {
         test: /\.vue$/,
         loader: 'vue'

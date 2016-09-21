@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Smile" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1728px" height="2592px" viewBox="0 0 1728 2592" enable-background="new 0 0 1728 2592" xml:space="preserve">
-<path fill="#F6F900" d="M864,588.16c-357.241,0-648,290.759-648,648s290.759,648,648,648s648-290.759,648-648
-	S1221.241,588.16,864,588.16z M864,696.16c298.873,0,540,241.127,540,540s-241.127,540-540,540s-540-241.127-540-540
-	S565.127,696.16,864,696.16z M486,1128.16v108h270v-108H486z M972,1128.16v108h270v-108H972z M486,1398.16c0,0,86.724,270,378,270
-	s378-270,378-270H486z"/>
+	 width="200px" height="200px" viewBox="764 1196 200 200" enable-background="new 764 1196 200 200" xml:space="preserve">
+<path fill="#F6F900" d="M864,1196c-55.13,0-100,44.87-100,100s44.87,100,100,100s100-44.87,100-100S919.13,1196,864,1196z
+	 M864,1212.667c46.123,0,83.333,37.211,83.333,83.333c0,46.123-37.21,83.334-83.333,83.334c-46.123,0-83.333-37.211-83.333-83.334
+	C780.667,1249.878,817.877,1212.667,864,1212.667z M805.667,1279.333V1296h41.667v-16.667H805.667z M880.667,1279.333V1296h41.666
+	v-16.667H880.667z M805.667,1321c0,0,13.383,41.666,58.333,41.666S922.333,1321,922.333,1321H805.667z"/>
 </svg>
