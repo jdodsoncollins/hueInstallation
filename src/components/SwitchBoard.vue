@@ -51,6 +51,18 @@
   import { Swipe, SwipeItem } from 'vue-swipe';
 
   import Switch from './Switch';
+  import Firebase from 'firebase';
+
+  Firebase.initializeApp({
+    apiKey: 'AIzaSyCMrWE7gWzGjHW08YimzSpGgnCXbTbzhMk',
+    authDomain: 'flipp-a77fe.firebaseapp.com',
+    databaseURL: 'https://flipp-a77fe.firebaseio.com',
+    storageBucket: '',
+    messagingSenderId: '636127035750',
+  });
+  Firebase.auth().signInAnonymously().catch(() => {
+    // No op
+  });
 
   export default {
     name: 'SwitchBoard',
@@ -75,7 +87,17 @@
     },
     methods: {
       submitVote(id) {
-        console.log('cast vote for: ' + id);
+        const colorOption = Firebase.database().ref("Lights/option" + id);
+        colorOption.transaction(function(post) {
+          if (post == null) {
+            return 0;
+          }
+          return ++post;
+        }).then(function (response) {
+          console.log(response);
+        }).catch(function (error) {
+          console.log(error);
+        });
       }
     },
   };
