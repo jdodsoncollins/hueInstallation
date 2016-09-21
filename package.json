@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "firebase": "^3.4.0",
+    "foundation-sites": "^6.2.3",
     "jquery": "^2.2.4",
     "normalize.css": "^4.2.0",
     "vue": "^1.0.26",

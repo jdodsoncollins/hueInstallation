@@ -1,12 +1,12 @@
 <template>
-  <ul class="heart-container">
-    <li class="vote-icon" @click="clickLike()">
-      <img :src="icon">
-    </li>
-    <li v-for="like in likes | likeFilter">
-      <div class="heart" :style="like.styleObject"></div>
-    </li>
-  </ul>
+  <div class="like-container" @click="clickLike()">
+    <img :src="icon" style="max-width:100px;">
+    <ul class="heart-container">
+      <li v-for="like in likes | likeFilter">
+        <div class="heart" :style="like.styleObject"></div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -81,17 +81,25 @@
         });
       },
     },
+
   }
 </script>
 
 <style lang="scss">
-
+  .like-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .vote-icon,
   .vote-icon img {
     z-index: 999 !important;
   }
 
   .heart-container {
+    position: relative;
+    top: -100px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -104,13 +112,8 @@
     li {
       position: absolute;
       display: block;
-      background-color: rgba(0, 0, 0, 0);
       z-index: 1;
     }
-  }
-
-  .owl-stage-outer {
-    overflow: visible !important;
   }
 
   .heart {
@@ -119,8 +122,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    left: 15px;
-    top: 15px;
   }
 
   @keyframes fadeOut {

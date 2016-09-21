@@ -1,3 +1,5 @@
+import 'foundation-sites/dist/foundation.min.css';
+
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import 'normalize.css/normalize.css';
