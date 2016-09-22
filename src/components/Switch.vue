@@ -96,10 +96,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
 
-    img {
-      padding: 25px;
-    }
+  .like-container img {
+    padding: 25px;
   }
 
   .vote-icon,

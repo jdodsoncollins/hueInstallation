@@ -5,28 +5,28 @@
         </div>
         <div class="row small-up-2 medium-up-4 large-up-4">
             <div class="column">
-                <switch :icon="icons.heartIcon" @click="submitVote(0)"></switch>
+                <switch :icon="icons.redIcon" @click="submitVote('red')"></switch>
             </div>
             <div class="column">
-                <switch :icon="icons.peachIcon" @click="submitVote(1)"></switch>
+                <switch :icon="icons.lightOrangeIcon" @click="submitVote('lightOrange')"></switch>
             </div>
             <div class="column">
-                <switch :icon="icons.sunIcon" @click="submitVote(2)"></switch>
+                <switch :icon="icons.orangeIcon" @click="submitVote('orange')"></switch>
             </div>
             <div class="column">
-                <switch :icon="icons.smileIcon" @click="submitVote(3)"></switch>
+                <switch :icon="icons.yellowIcon" @click="submitVote('yellow')"></switch>
             </div>
             <div class="column">
-                <switch :icon="icons.voltIcon" @click="submitVote(4)"></switch>
+                <switch :icon="icons.greenIcon" @click="submitVote('green')"></switch>
             </div>
             <div class="column">
-                <switch :icon="icons.waterIcon" @click="submitVote(5)"></switch>
+                <switch :icon="icons.blueIcon" @click="submitVote('blue')"></switch>
             </div>
             <div class="column">
-                <switch :icon="icons.musicIcon" @click="submitVote(6)"></switch>
+                <switch :icon="icons.violetIcon" @click="submitVote('violet')"></switch>
             </div>
             <div class="column">
-                <switch :icon="icons.flowerIcon" @click="submitVote(7)"></switch>
+                <switch :icon="icons.magentaIcon" @click="submitVote('magenta')"></switch>
             </div>
         </div>
     </div>
@@ -35,17 +35,18 @@
 <script>
 
     import flippBrand from '../assets/flipBrand.png';
-    import heartIcon from '../assets/images/icons/heart_red.svg';
-    import peachIcon from '../assets/images/icons/peach_light_orange.svg';
-    import sunIcon from '../assets/images/icons/sun_orange.svg';
-    import smileIcon from '../assets/images/icons/smile_yellow.svg';
-    import voltIcon from '../assets/images/icons/volt_green_yellow.svg';
-    import waterIcon from '../assets/images/icons/water_blue.svg';
-    import musicIcon from '../assets/images/icons/music_violet.svg';
-    import flowerIcon from '../assets/images/icons/flower_magenta.svg';
+
+    import redIcon from '../assets/images/icons/heart_red.svg';
+    import lightOrangeIcon from '../assets/images/icons/peach_light_orange.svg';
+    import orangeIcon from '../assets/images/icons/sun_orange.svg';
+    import yellowIcon from '../assets/images/icons/smile_yellow.svg';
+    import greenIcon from '../assets/images/icons/volt_green_yellow.svg';
+    import blueIcon from '../assets/images/icons/water_blue.svg';
+    import violetIcon from '../assets/images/icons/music_violet.svg';
+    import magentaIcon from '../assets/images/icons/flower_magenta.svg';
 
     import 'vue-swipe/dist/vue-swipe.css';
-    import {Swipe, SwipeItem} from 'vue-swipe';
+    import { Swipe, SwipeItem } from 'vue-swipe';
 
     import Switch from './Switch';
     import Firebase from 'firebase';
@@ -57,6 +58,7 @@
         storageBucket: '',
         messagingSenderId: '636127035750',
     });
+
     Firebase.auth().signInAnonymously().catch(() => {
         // No op
     });
@@ -72,27 +74,29 @@
             return {
                 icons: {
                     flippBrand: flippBrand,
-                    heartIcon: heartIcon,
-                    peachIcon: peachIcon,
-                    sunIcon: sunIcon,
-                    smileIcon: smileIcon,
-                    voltIcon: voltIcon,
-                    waterIcon: waterIcon,
-                    musicIcon: musicIcon,
-                    flowerIcon: flowerIcon,
+                    redIcon: redIcon,
+                    lightOrangeIcon: lightOrangeIcon,
+                    orangeIcon: orangeIcon,
+                    yellowIcon: yellowIcon,
+                    greenIcon: greenIcon,
+                    blueIcon: blueIcon,
+                    violetIcon: violetIcon,
+                    magentaIcon: magentaIcon,
                 }
             };
         },
         methods: {
-            submitVote(id) {
-                const colorOption = Firebase.database().ref("Lights/option" + id);
+            submitVote(color) {
+                console.log('this is color: ' + color);
+
+                const colorOption = Firebase.database().ref("Lights/" + color);
                 colorOption.transaction(function (post) {
                     if (post == null) {
                         return 0;
                     }
                     return ++post;
                 }).then(function (response) {
-                    console.log(response);
+                    console.log('success');
                 }).catch(function (error) {
                     console.log(error);
                 });
