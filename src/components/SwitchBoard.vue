@@ -56,14 +56,9 @@
 
     import Switch from './Switch';
     import Firebase from 'firebase';
+    import config from '../config/firebase.config.js'
 
-    Firebase.initializeApp({
-        apiKey: 'AIzaSyCMrWE7gWzGjHW08YimzSpGgnCXbTbzhMk',
-        authDomain: 'flipp-a77fe.firebaseapp.com',
-        databaseURL: 'https://flipp-a77fe.firebaseio.com',
-        storageBucket: '',
-        messagingSenderId: '636127035750',
-    });
+    Firebase.initializeApp(config.firebase);
 
     Firebase.auth().signInAnonymously().catch(() => {
         // No op
