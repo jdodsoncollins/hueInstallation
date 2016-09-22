@@ -5,6 +5,7 @@ import VueResource from 'vue-resource';
 import 'normalize.css/normalize.css';
 
 import App from './App';
+import './clickThrottle.js';
 
 Vue.use(VueResource);
 

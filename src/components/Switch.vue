@@ -10,20 +10,15 @@
 </template>
 
 <script>
-  import heartBlue from '../assets/images/hearts/blue.svg';
-  import heartMagenta from '../assets/images/hearts/magenta.svg';
-  import heartOrange from '../assets/images/hearts/orange.svg';
-  import heartPeach from '../assets/images/hearts/peach.svg';
-  import heartPurple from '../assets/images/hearts/purple.svg';
-  import heartRed from '../assets/images/hearts/red.svg';
-  import heartGreen from '../assets/images/hearts/green.svg';
-  import heartYellow from '../assets/images/hearts/yellow.svg';
 
   export default {
     props: {
       icon: {
         required: true
       },
+      heart: {
+        required: true
+      }
     },
 
     filters: {
@@ -40,17 +35,7 @@
 
     data() {
       return {
-        likes: [],
-        hearts: {
-          'heart1': heartBlue,
-          'heart2': heartMagenta,
-          'heart3': heartOrange,
-          'heart4': heartPeach,
-          'heart5': heartPurple,
-          'heart6': heartRed,
-          'heart7': heartGreen,
-          'heart8': heartYellow,
-        }
+        likes: []
       };
     },
 
@@ -69,13 +54,10 @@
         let animationTwo = animationTime + 's fadeOut forwards';
         let animationThree = animationTime + 's ' + animationSize + ' forwards';
 
-        let heartChoice = 'heart' + this.numberBetween(1, 8);
-        heartChoice = this.hearts[heartChoice];
-
         this.likes.push({
           datetime: Date.now(),
           styleObject: {
-            backgroundImage: 'url(' + heartChoice + ')',
+            backgroundImage: 'url(' + this.heart + ')',
             animation: animationOne + ', ' + animationTwo + ', ' + animationThree,
           },
         });
@@ -109,7 +91,6 @@
 
   .heart-container {
     position: relative;
-    top: -100px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -128,10 +109,11 @@
 
   .heart {
     width: 50px;
-    height: 50px;
+    height: auto;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
+    top: -100px;
   }
 
   @keyframes fadeOut {
