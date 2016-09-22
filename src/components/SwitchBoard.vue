@@ -92,8 +92,6 @@
         },
         methods: {
             submitVote(color) {
-                console.log('this is color: ' + color);
-
                 const colorOption = Firebase.database().ref("Lights/" + color);
                 colorOption.transaction(function (post) {
                     if (post == null) {
@@ -101,7 +99,7 @@
                     }
                     return ++post;
                 }).then(function (response) {
-                    console.log('success');
+//                    console.log('success');
                 }).catch(function (error) {
                     console.log(error);
                 });
