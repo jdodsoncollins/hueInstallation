@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row small-up-2 medium-up-4 large-up-4">
+        <div class="row small-up-2 medium-up-4 large-up-4 flipp-switch">
             <div class="column">
                 <switch :icon="icons.redIcon" @click="submitVote('red')"></switch>
             </div>
@@ -29,15 +29,26 @@
     </div>
 </template>
 
+<style>
+    .flipp-switch .column:nth-child(odd) {
+        position: relative;
+        left: 15px;
+    }
+    .flipp-switch .column:nth-child(even) {
+        position: relative;
+        right: 15px;
+    }
+</style>
+
 <script>
 
-    import redIcon from '../assets/images/icons/heart_violet_circle.svg';
+    import violetIcon from '../assets/images/icons/heart_violet_circle.svg';
     import lightOrangeIcon from '../assets/images/icons/peach_peach_circle.svg';
     import orangeIcon from '../assets/images/icons/sun_orange_circle.svg';
     import yellowIcon from '../assets/images/icons/smile_yellow_circle.svg';
     import greenIcon from '../assets/images/icons/volt_green_circle.svg';
     import blueIcon from '../assets/images/icons/water_blue_circle.svg';
-    import violetIcon from '../assets/images/icons/music_red_circle.svg';
+    import redIcon from '../assets/images/icons/music_red_circle.svg';
     import magentaIcon from '../assets/images/icons/flower_magenta_circle.svg';
 
     import 'vue-swipe/dist/vue-swipe.css';

@@ -21,7 +21,7 @@
     background-size: cover;
   }
   .flipp-container header {
-    padding: 75px 0 0;
+    padding: 75px 0 50px;
     display: flex;
     flex-direction: column;
     align-items: center;

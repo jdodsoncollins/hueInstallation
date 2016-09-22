@@ -1,6 +1,6 @@
 <template>
   <div class="like-container noselect" @click="clickLike()">
-    <img :src="icon">
+    <img :src="icon" style="max-width: 120px;">
     <ul class="heart-container noselect">
       <li v-for="like in likes | likeFilter">
         <div class="heart noselect" :style="like.styleObject"></div>
@@ -99,7 +99,7 @@
   }
 
   .like-container img {
-    padding: 25px;
+    padding: 10px;
   }
 
   .vote-icon,
