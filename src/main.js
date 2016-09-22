@@ -1,6 +1,7 @@
+import 'foundation-sites/dist/foundation.min.css';
+
 import Vue from 'vue';
 import VueResource from 'vue-resource';
-import Firebase from 'firebase';
 import 'normalize.css/normalize.css';
 
 import App from './App';
@@ -16,4 +17,3 @@ $(function() {
     },
   });
 });
-

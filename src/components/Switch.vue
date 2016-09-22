@@ -1,12 +1,12 @@
 <template>
-  <ul class="heart-container">
-    <li class="vote-icon" @click="clickLike()">
-      <img :src="icon">
-    </li>
-    <li v-for="like in likes | likeFilter">
-      <div class="heart" :style="like.styleObject"></div>
-    </li>
-  </ul>
+  <div class="like-container noselect" @click="clickLike()">
+    <img :src="icon" style="max-width: 120px;">
+    <ul class="heart-container noselect">
+      <li v-for="like in likes | likeFilter">
+        <div class="heart noselect" :style="like.styleObject"></div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -81,10 +81,26 @@
         });
       },
     },
+
   }
 </script>
 
 <style lang="scss">
+
+  .noselect {
+    user-select: none;
+  }
+
+  .like-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .like-container img {
+    padding: 10px;
+  }
 
   .vote-icon,
   .vote-icon img {
@@ -92,20 +108,22 @@
   }
 
   .heart-container {
+    position: relative;
+    top: -100px;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     li {
       position: absolute;
       display: block;
-      background-color: rgba(0, 0, 0, 0);
       z-index: 1;
     }
-  }
-
-  .owl-stage-outer {
-    overflow: visible !important;
   }
 
   .heart {
@@ -114,8 +132,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    left: 15px;
-    top: 15px;
   }
 
   @keyframes fadeOut {

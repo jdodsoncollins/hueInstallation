@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flip</title>
-  </head>
-  <body>
+</head>
+<body>
     <app></app>
-  </body>
+</body>
+
+<script>
+    window.onload = () => {
+
+        document.documentElement.addEventListener('touchstart', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, false);
+
+        let lastTouchEnd = 0;
+        document.documentElement.addEventListener('touchend', function (event) {
+            let now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 200) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    };
+</script>
+
 </html>
