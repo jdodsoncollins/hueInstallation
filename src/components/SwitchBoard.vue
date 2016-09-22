@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div class="row column text-center">
-            <img :src="icons.flippBrand" alt="" style="max-width: 300px;">
-        </div>
         <div class="row small-up-2 medium-up-4 large-up-4">
             <div class="column">
                 <switch :icon="icons.redIcon" @click="submitVote('red')"></switch>
@@ -34,16 +31,14 @@
 
 <script>
 
-    import flippBrand from '../assets/flipBrand.png';
-
-    import redIcon from '../assets/images/icons/heart_red.svg';
-    import lightOrangeIcon from '../assets/images/icons/peach_light_orange.svg';
-    import orangeIcon from '../assets/images/icons/sun_orange.svg';
-    import yellowIcon from '../assets/images/icons/smile_yellow.svg';
-    import greenIcon from '../assets/images/icons/volt_green_yellow.svg';
-    import blueIcon from '../assets/images/icons/water_blue.svg';
-    import violetIcon from '../assets/images/icons/music_violet.svg';
-    import magentaIcon from '../assets/images/icons/flower_magenta.svg';
+    import redIcon from '../assets/images/icons/heart_violet_circle.svg';
+    import lightOrangeIcon from '../assets/images/icons/peach_peach_circle.svg';
+    import orangeIcon from '../assets/images/icons/sun_orange_circle.svg';
+    import yellowIcon from '../assets/images/icons/smile_yellow_circle.svg';
+    import greenIcon from '../assets/images/icons/volt_green_circle.svg';
+    import blueIcon from '../assets/images/icons/water_blue_circle.svg';
+    import violetIcon from '../assets/images/icons/music_red_circle.svg';
+    import magentaIcon from '../assets/images/icons/flower_magenta_circle.svg';
 
     import 'vue-swipe/dist/vue-swipe.css';
     import { Swipe, SwipeItem } from 'vue-swipe';
@@ -73,7 +68,6 @@
         data() {
             return {
                 icons: {
-                    flippBrand: flippBrand,
                     redIcon: redIcon,
                     lightOrangeIcon: lightOrangeIcon,
                     orangeIcon: orangeIcon,
