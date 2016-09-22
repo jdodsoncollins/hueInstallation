@@ -1,7 +1,11 @@
 <template>
-  <section class="switch-container">
-    <img :src="flippLogo" alt="" class="text-center">
-    <switch-board></switch-board>
+  <section class="flipp-container">
+    <header>
+      <img :src="flippLogo" alt="" class="text-center">
+    </header>
+    <article>
+      <switch-board></switch-board>
+    </article>
   </section>
 </template>
 
@@ -15,17 +19,13 @@
     background: black url('./assets/background.jpg') no-repeat;
     z-index: -999;
     background-size: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
   }
-  .switch-container {
-  }
-  .app {
-    /*background: url('./assets/images/gradientbg.png') no-repeat;*/
-    /*background-size: 100% 100%;*/
+  .flipp-container header {
+    padding: 75px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 </style>
 
